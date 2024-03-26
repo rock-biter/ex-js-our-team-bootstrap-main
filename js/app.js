@@ -38,6 +38,8 @@ const teams = [
 	},
 ]
 
+const availableJobsTitle = ['Designer', 'Project Manager', 'Developer']
+// console.log(availableJobsTitle.includes('Pizzaiolo'))
 console.log(teams)
 
 // PER OGNI membro del team
@@ -53,38 +55,41 @@ for (let i = 0; i < teams.length; i++) {
 
 	//console.log(name, job, email)
 
-	appendTableHtml(currentTeamMember);
+	appendTableHtml(currentTeamMember)
 }
 
-const form = document.getElementById("form-add-members");
-console.log(form);
-form.addEventListener('submit', aggiungiMembro);
+const form = document.getElementById('form-add-members')
+console.log(form)
+form.addEventListener('submit', aggiungiMembro)
 
 //Funzione che accetta un parametro di tipo evento
 function aggiungiMembro(e) {
 	//Disabilitare la propagazione del submit
-	console.log(e);
-	e.preventDefault();
-	//Recuperiamo i singoli input per recuperare il valore che viene inserito 
-	//alla compilazione del form 
-	const name = document.getElementById("name").value;
-	const job = document.getElementById("role").value;
-	const email = document.getElementById("email").value;
+	console.log(e)
+	e.preventDefault()
+	//Recuperiamo i singoli input per recuperare il valore che viene inserito
+	//alla compilazione del form
+	const name = document.getElementById('name').value // string
+	const job = document.getElementById('role').value // string
+	const email = document.getElementById('email').value // string
 	//con i valori si costruisce il nuovo membro
 
 	const nuovoMembro = {
 		name: name,
 		job: job,
-		email: email
-	};
+		email: email,
+	}
 
-	console.log(nuovoMembro);
+	console.log(nuovoMembro)
 	//Deve pushare il nuovo membro nell'array
-	teams.push(nuovoMembro);
+	teams.push(nuovoMembro)
 
-	console.log(teams);
+	console.log(teams)
 
-	appendTableHtml(nuovoMembro);
+	const isValid = validateMember(name, job, email)
+	if (isValid) {
+		appendTableHtml(nuovoMembro)
+	}
 }
 //accetta come parametro un membro del team
 function appendTableHtml(member) {
@@ -98,4 +103,39 @@ function appendTableHtml(member) {
 	</tr>
 	`
 	tBodyElement.innerHTML += trHTMLString
+}
+
+function validateMember(name, job, email) {
+	console.log(name, typeof name)
+	console.log(job, typeof job)
+	console.log(email, typeof email)
+
+	// // validation di name
+	if (name === '') {
+		console.log('il nome non è valido')
+		return false
+	}
+
+	// // // validation di job
+	if (availableJobsTitle.includes(job) === false) {
+		console.log('il job selezionato non è valido')
+		return false
+	}
+	// else if () {
+	// 	console.log(job, 'non è un valore valido')
+	// 	return false
+	// }
+
+	// // // validation di email
+	if (email === '') {
+		console.log('email non è valida')
+		return false
+	}
+
+	// if (name === '' || job === '' || email === '') {
+	// 	return false
+	// }
+
+	// return boolean
+	return true
 }
