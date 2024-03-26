@@ -40,44 +40,62 @@ const teams = [
 
 console.log(teams)
 
-const tBodyElement = document.getElementById('table-body')
-console.log(tBodyElement)
-
 // PER OGNI membro del team
 for (let i = 0; i < teams.length; i++) {
 	const currentTeamMember = teams[i]
 	// console.log(currentTeamMember)
 	// recuperaimo nome
-	const name = currentTeamMember.name
+	//const name = currentTeamMember.name
 	// recuperiamo job
-	const job = currentTeamMember.job
+	//const job = currentTeamMember.job
 	// recuperiamo email
-	const email = currentTeamMember.email
+	//const email = currentTeamMember.email
 
-	console.log(name, job, email)
+	//console.log(name, job, email)
+
+	appendTableHtml(currentTeamMember);
+}
+
+const form = document.getElementById("form-add-members");
+console.log(form);
+form.addEventListener('submit', aggiungiMembro);
+
+//Funzione che accetta un parametro di tipo evento
+function aggiungiMembro(e) {
+	//Disabilitare la propagazione del submit
+	console.log(e);
+	e.preventDefault();
+	//Recuperiamo i singoli input per recuperare il valore che viene inserito 
+	//alla compilazione del form 
+	const name = document.getElementById("name").value;
+	const job = document.getElementById("role").value;
+	const email = document.getElementById("email").value;
+	//con i valori si costruisce il nuovo membro
+
+	const nuovoMembro = {
+		name: name,
+		job: job,
+		email: email
+	};
+
+	console.log(nuovoMembro);
+	//Deve pushare il nuovo membro nell'array
+	teams.push(nuovoMembro);
+
+	console.log(teams);
+
+	appendTableHtml(nuovoMembro);
+}
+//accetta come parametro un membro del team
+function appendTableHtml(member) {
+	const tBodyElement = document.getElementById('table-body')
 
 	const trHTMLString = `
 	<tr>
-	  <td>${name}</td>
-	  <td>${job}</td>
-	  <td>${email}</td>
+	  <td>${member.name}</td>
+	  <td>${member.job}</td>
+	  <td>${member.email}</td>
 	</tr>
 	`
-	// console.log(trHTMLString)
-	// const trHTMLString =
-	// 	'<tr>' +
-	// 	'<td>' +
-	// 	name +
-	// 	'</td>' +
-	// 	'<td>' +
-	// 	job +
-	// 	'</td>' +
-	// 	'<td>' +
-	// 	email +
-	// 	'</td>' +
-	// 	'</tr>'
-	// creare il tag html del tr:
-
-	// aggiungiamo il tag nel tbody della tabella
 	tBodyElement.innerHTML += trHTMLString
 }
