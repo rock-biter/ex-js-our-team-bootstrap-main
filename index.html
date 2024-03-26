@@ -4,11 +4,116 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Our team</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
 		<link rel="stylesheet" href="./css/app.css" />
 	</head>
 	<body>
-		<h1>Ciao mondo!</h1>
+		<header>
+			<nav data-bs-theme="dark" class="navbar bg-dark   navbar-expand-lg bg-body-tertiary">
+				<div class="container">
+					<a class="navbar-brand" href="#">Navbar</a>
+					</div>
+				</div>
+			</nav>
+		</header>
 
+    <main>
+      <section class="py-5 ">
+        <div class="container mb-5 text-center">
+          <h1 class="">Developers</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, debitis accusantium. Necessitatibus maiores quasi eveniet. </p>
+      
+        </div>
+
+        <div class="container">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Job</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody id="table-body" class="table-group-divider">
+                <!-- <tr>
+                  <td>Wayne Barnett</td>
+                  <td>Project Manager</td>
+                  <td>wayne@bool.mail</td>
+                </tr>
+                <tr>
+                  <td>Angela Caroll</td>
+                  <td>Designer</td>
+                  <td>angela@bool.mail</td>
+                </tr>
+                <tr>
+                  <td>Walter Gordon</td>
+                  <td>Project Manager</td>
+                  <td>walter@bool.mail</td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <!-- Form inserimento team member -->
+      <section class="pb-5">
+        <div class="container">
+          <h2 class="h1">Add new Member</h2>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <form action="">
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" name="name" class="form-control" id="name" placeholder="Il tuo nome">
+            </div>
+            <div class="mb-3">
+              <label for="role" class="form-label">Role</label>
+              <select class="form-select" id="role" name="role" aria-label="Default select example">
+                <option selected>Selezione un ruolo</option>
+                <option value="1">Project Manager</option>
+                <option value="2">Developer</option>
+                <option value="3">Designer</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+            </div>
+
+            <button class="btn btn-primary">
+              Aggiungi
+            </button>
+
+          </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+    </main>
+
+    <footer class="py-5 bg-dark text-white">
+      <div class="container">
+        <p>Made with &hearts;</p>
+      </div>
+    </footer>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"
+		></script>
 		<script src="./js/app.js"></script>
 	</body>
 </html>
